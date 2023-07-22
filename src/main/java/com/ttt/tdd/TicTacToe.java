@@ -11,4 +11,9 @@ public class TicTacToe {
 		}
 	}
 
+	public char nextPlayer() {
+		return 'X';
+
+	}
+
 }
