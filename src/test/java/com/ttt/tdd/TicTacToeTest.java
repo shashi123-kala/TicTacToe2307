@@ -10,6 +10,8 @@ import org.junit.rules.ExpectedException;
 public class TicTacToeTest {
 
 	TicTacToe ticTacToe = new TicTacToe();
+	public static final Character FIRST_PLAYER = 'X';
+	public static final Character SECOND_PLAYER = 'O';
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
