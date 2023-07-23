@@ -32,7 +32,7 @@ public class TicTacToe {
 		if (board[column - 1][row - 1] != '\0') {
             throw new TicTacToeException(msg);
         } else {
-            board[column - 1][row - 1] = 'X';
+            board[column - 1][row - 1] = lastPlayer;
         }		
 	}
 
