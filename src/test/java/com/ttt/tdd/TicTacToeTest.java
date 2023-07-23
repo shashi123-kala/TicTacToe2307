@@ -18,6 +18,7 @@ public class TicTacToeTest {
 	public static final Character SECOND_PLAYER = 'O';
 	public static final String ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD = "X value is outside the board!";
 	public static final String ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD = "Y value is outside the board!";
+	public static final String X_IS_THE_WINNER = "X is the Winner";
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
