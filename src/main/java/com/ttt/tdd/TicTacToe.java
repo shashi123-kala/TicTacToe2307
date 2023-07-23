@@ -11,13 +11,6 @@ public class TicTacToe {
 		checkAxis(column, "X value is outside the board!");
 		checkAxis(row, "Y value is outside the board!");
        setField(column, row,"Field is occupied!");
-
-//		if (board[column - 1][row - 1] != '\0') {
-//			throw new TicTacToeException("Field is occupied!");
-//		}
-//		 else {
-//	            board[column - 1][row - 1] = 'X';
-//	        }
 	}
 
 	private void setField(int column, int row,String msg) {
