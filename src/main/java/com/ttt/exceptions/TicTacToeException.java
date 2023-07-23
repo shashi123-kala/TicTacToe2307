@@ -10,4 +10,5 @@ public class TicTacToeException extends RuntimeException {
 		super(message);
 	}
 
+
 }
