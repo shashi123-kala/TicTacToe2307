@@ -19,7 +19,6 @@ public class TicTacToeTest {
 	public static final String ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD = "X value is outside the board!";
 	public static final String ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD = "Y value is outside the board!";
 
-
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 
@@ -27,36 +26,41 @@ public class TicTacToeTest {
 	public void initializeNewTicTacToeGame() {
 		assertNotNull(ticTacToe);
 	}
-	
+
 	@Test
 	public void whenOccupiedThenRuntimeException() {
 		ticTacToe.play(2, 1);
-		exception.expect(RuntimeException.class);
+		Exception exception = assertThrows(TicTacToeException.class, () -> {
+			ticTacToe.play(2, 1);
+		});
+		String expectedMessage = "Field is occupied!";
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 	}
-	
+
 	@Test
-	public void playWithFIrstPlayer () {
+	public void playWithFIrstPlayer() {
 		assertEquals('X', ticTacToe.nextPlayer());
 	}
-	
+
 	@Test
 	public void whenXValueIsOutSideTheBoard() {
-	    Exception exception = assertThrows(TicTacToeException.class, () -> {ticTacToe.play(5, 2); });
-	    String expectedMessage = ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD;
-	    String actualMessage = exception.getMessage();
-	    assertTrue(actualMessage.contains(expectedMessage));
+		Exception exception = assertThrows(TicTacToeException.class, () -> {
+			ticTacToe.play(5, 2);
+		});
+		String expectedMessage = ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD;
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 	}
-	
+
 	@Test
 	public void whenYValueIsOutSideTheBoard() {
-	    Exception exception = assertThrows(TicTacToeException.class, () -> {ticTacToe.play(2, 6); });
-	    String expectedMessage = ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD;
-	    String actualMessage = exception.getMessage();
-	    assertTrue(actualMessage.contains(expectedMessage));
+		Exception exception = assertThrows(TicTacToeException.class, () -> {
+			ticTacToe.play(2, 6);
+		});
+		String expectedMessage = ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD;
+		String actualMessage = exception.getMessage();
+		assertTrue(actualMessage.contains(expectedMessage));
 	}
-	
-	
-	
-	
 
 }
